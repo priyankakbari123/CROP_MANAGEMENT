@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "139088693172",
+    "project_id": "crop-management-32603",
+    "storage_bucket": "crop-management-32603.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139088693172:android:d0bfe1a693fb375b5194e1",
+        "android_client_info": {
+          "package_name": "com.cropmanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139088693172-ft6u5knng8586lv02jgp27up149ur263.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cropmanagement",
+            "certificate_hash": "f440c4440583b7fa5612e2f9a83c38997302961f"
+          }
+        },
+        {
+          "client_id": "139088693172-s4btcd75sdj1le7jofkuthsquu3ms2ul.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaT51in0rt2pl3fDv5tUFKF1gGtjaHBuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139088693172-s4btcd75sdj1le7jofkuthsquu3ms2ul.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
