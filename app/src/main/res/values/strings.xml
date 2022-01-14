@@ -4,4 +4,16 @@
     <string name="login">Login</string>
     <string name="otp_verification">Otp Verification</string>
     <string name="please_enter_otp">Please Enter Otp</string>
+    <string name="in_how_much_area_you_are_growing_crop">In How much area you are growing crop ?</string>
+    <string name="logout">Logout</string>
+    <string name="which_crop_you_are_growing">Which Crop You are growing</string>
+    <string name="add_crop">Add Crop</string>
+    <string name="enter_showing_date">Enter Showing Date</string>
+    <string name="select_date">Select Date</string>
+
+    <string-array name="crops">
+        <item>Cotton</item>
+        <item>Wheat</item>
+        <item>Onion</item>
+    </string-array>
 </resources>
