@@ -1,34 +1,81 @@
 package com.cropmanagement;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.ktx.Firebase;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class home extends AppCompatActivity {
-    public String crop_name;
+    public String crop_name,UID,cropId;
     private FirebaseAuth mFirebaseAuth;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
+    public int area;
+    EditText farmArea;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference,reference1;
+    int s_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mFirebaseAuth=FirebaseAuth.getInstance();
+
+//GETTING MAX SOWING_ID ----------------------------------------------------------------------------
+        reference= FirebaseDatabase.getInstance().getReference().child("sowing_details_ID");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                s_id=snapshot.getValue(Integer.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//CREATE OBJECTS OF CROP  --------------------------------------------------------------------------
+        crop cotton=new crop();
+        cotton.crop_name="Cotton";
+        cotton.crop_id="c1_cotton";
+
+        crop wheat=new crop();
+        cotton.crop_name="Wheat";
+        cotton.crop_id="c2_wheat";
+
+        crop onion=new crop();
+        cotton.crop_name="Onion";
+        cotton.crop_id="c3_onion";
+
 //------------------------------------------------------------------------------------------------------------------------------------------
         //SPINNER FOR CROP SELECTION
         Spinner spinner=findViewById(R.id.crop_spinner);
@@ -50,15 +97,74 @@ public class home extends AppCompatActivity {
         //ONCLICK ON ADD CROP BUTTON
         final Button addcropbtn=findViewById(R.id.addcropbtn);
         addcropbtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View view) {
-                crop_name= (String) spinner.getSelectedItem();
+
+                sowing_details sd = new sowing_details();
+
+                crop_name = (String) spinner.getSelectedItem();
+                if(crop_name.equals("Cotton")){
+                    cropId=cotton.getCrop_id(crop_name);
+                    sd.crop_id=cropId;
+                }
 
                 Calendar cal = Calendar.getInstance();
-                String s= (String) dateButton.getText();    //getting selected date into string format
-                //NEED TO CONVERT INTO DATE FORMAT AND STORE INTO DATABASE
-//                String selectedDate = DateFormat.getDateInstance(DateFormat.SHORT).format(dateButton.getText());
-                Toast.makeText(home.this,s,Toast.LENGTH_SHORT).show();
+                String s = (String) dateButton.getText();    //getting selected date into string format
+
+                //LOGIC FOR CONVERTING STRING TO DATE(NEED TO BE FIXED)
+//                SimpleDateFormat sdf = new SimpleDateFormat("MMMM D yyyy");
+//                try {
+//                    Date sowingDate = sdf.parse(s);   //sowingDate contains Sowing Date in Date Format
+//
+//                    //CONVERT SOWING DATE INTO STRING FOR PRINTING PURPOSE
+//                    SimpleDateFormat postFormater = new SimpleDateFormat("dd/MM/yyyy");
+//                    String sowing_date_s = postFormater.format(sowingDate);
+//                    Toast.makeText(home.this,sowing_date_s,Toast.LENGTH_SHORT).show();
+//                } catch (ParseException e) {
+//                    Toast.makeText(home.this,"Something went Wrong 72 !",Toast.LENGTH_SHORT).show();
+//                    e.printStackTrace();
+//                }
+
+
+//GETTING FARM AREA ----------------------------------------------------------------------------------------
+                farmArea = findViewById(R.id.crop_area);
+                if(farmArea.getText().toString().equals("")){
+                    Toast.makeText(home.this, "Please Enter Area ", Toast.LENGTH_SHORT).show();
+                }else{
+                    area = Integer.parseInt(farmArea.getText().toString());   //AREA OF FARM
+                    sd.Area=area;
+                }
+
+                Toast.makeText(home.this, s, Toast.LENGTH_SHORT).show();
+
+//CURRENT USERID ------------------------------------------------------------------------------------------
+                FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+                UID = currentFirebaseUser.getUid();
+                sd.farmer_id=UID;
+
+                SimpleDateFormat sdf = new SimpleDateFormat("MMM DD yyyy");
+                Date date = null;
+                try {
+                    date = sdf.parse(s);
+                    sd.sowing_date=date;
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+//GENERATE UNIQUE SOWING_DETAILS_ID -----------------------------------------------------------------------
+                s_id=s_id+1;
+                sd.sowing_id=s_id;
+                reference.setValue(s_id);
+
+
+//MAKE OBJECT OF SOWING_DETAILS CLASS AND STORE DATA INTO DATABASE ----------------------------------------
+//                sowing_details sd = new sowing_details(s_id,cropId, UID, date, area);
+
+                //STORE DATA INTO FIREBASE
+                reference1=FirebaseDatabase.getInstance().getReference().child("sowing_details").child(Integer.toString(s_id));
+                reference1.setValue(sd);
+
             }
         });
 

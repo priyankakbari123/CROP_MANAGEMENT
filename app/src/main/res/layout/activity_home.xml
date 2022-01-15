@@ -40,7 +40,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/in_how_much_area_you_are_growing_crop"
+        android:text="@string/enter_farm_area_in_acres"
         android:textSize="16sp"
         android:layout_margin="30sp"/>
 
@@ -48,15 +48,16 @@
         android:id="@+id/crop_area"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40sp"
-        android:layout_marginRight="40sp"/>
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:inputType="number"/>
 
 <!--    ENTERING SHOWING DATE-->
     <TextView
         android:id="@+id/showingDateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/enter_showing_date"
+        android:text="@string/when_has_the_crop_been_sown"
         android:textSize="18sp"
         android:layout_margin="30sp"/>
     <Button
