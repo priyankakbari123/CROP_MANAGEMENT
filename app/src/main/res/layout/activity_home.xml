@@ -18,25 +18,32 @@
         android:textSize="30sp"
         android:text="@string/add_crop" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/which_crop_you_are_growing"
-        android:textSize="22sp"
-        android:layout_margin="30sp" />
 
-<!--    dropdown for selecting crop    -->
-    <Spinner
-        android:id="@+id/crop_spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30sp"
-        android:layout_marginLeft="55sp"
-        android:layout_marginRight="55sp"
-        />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/which_crop_you_are_growing"
+            android:textSize="22sp"
+            android:layout_margin="30sp"
+            />
+
+        <!--    dropdown for selecting crop    -->
+        <Spinner
+            android:id="@+id/crop_spinner"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55sp"
+            android:layout_marginRight="55sp"
+            android:layout_marginBottom="30sp"
+            />
+
+
+
+
 
 
 <!--    Input box for adding Area-->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

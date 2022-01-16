@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
@@ -40,7 +41,7 @@ public class home extends AppCompatActivity {
     public int area;
     EditText farmArea;
     FirebaseDatabase rootNode;
-    DatabaseReference reference,reference1;
+    DatabaseReference reference,reference1,crop_ref;
     int s_id;
 
     @Override
@@ -48,6 +49,9 @@ public class home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         mFirebaseAuth=FirebaseAuth.getInstance();
+
+        crop_ref=FirebaseDatabase.getInstance().getReference().child("crops");
+
 
 //GETTING MAX SOWING_ID ----------------------------------------------------------------------------
         reference= FirebaseDatabase.getInstance().getReference().child("sowing_details_ID");
@@ -62,19 +66,6 @@ public class home extends AppCompatActivity {
 
             }
         });
-
-//CREATE OBJECTS OF CROP  --------------------------------------------------------------------------
-        crop cotton=new crop();
-        cotton.crop_name="Cotton";
-        cotton.crop_id="c1_cotton";
-
-        crop wheat=new crop();
-        cotton.crop_name="Wheat";
-        cotton.crop_id="c2_wheat";
-
-        crop onion=new crop();
-        cotton.crop_name="Onion";
-        cotton.crop_id="c3_onion";
 
 //------------------------------------------------------------------------------------------------------------------------------------------
         //SPINNER FOR CROP SELECTION
@@ -103,14 +94,40 @@ public class home extends AppCompatActivity {
 
                 sowing_details sd = new sowing_details();
 
+
+//ASSIGN CROP ID ACCORDING TO CROP SELECTED
                 crop_name = (String) spinner.getSelectedItem();
-                if(crop_name.equals("Cotton")){
-                    cropId=cotton.getCrop_id(crop_name);
-                    sd.crop_id=cropId;
+                switch (crop_name){
+                    case "Cotton":
+                        cropId="c1_cotton";
+                        break;
+                    case "Wheat":
+                        cropId="c2_wheat";
+                        break;
+                    case "Onion":
+                        cropId="c3_onion";
+                        break;
                 }
+//                crop_ref=crop_ref.child(crop_name).child("crop_id");
+//                crop_ref.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                        cropId=snapshot.getValue().toString();
+//                        Toast.makeText(home.this, snapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError error) {
+//
+//                    }
+//                });
+                sd.setCrop_id(cropId);
 
                 Calendar cal = Calendar.getInstance();
                 String s = (String) dateButton.getText();    //getting selected date into string format
+
+//                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+
 
                 //LOGIC FOR CONVERTING STRING TO DATE(NEED TO BE FIXED)
 //                SimpleDateFormat sdf = new SimpleDateFormat("MMMM D yyyy");
@@ -143,7 +160,7 @@ public class home extends AppCompatActivity {
                 UID = currentFirebaseUser.getUid();
                 sd.farmer_id=UID;
 
-                SimpleDateFormat sdf = new SimpleDateFormat("MMM DD yyyy");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = null;
                 try {
                     date = sdf.parse(s);
@@ -213,8 +230,10 @@ public class home extends AppCompatActivity {
     }
     private String makeDateString(int day, int month, int year)
     {
-        return getMonthFormat(month) + " " + day + " " + year;
+//        return getMonthFormat(month) + " " + day + " " + year;
+        return day+"/"+month+"/"+year;
     }
+
 
     private String getMonthFormat(int month)
     {

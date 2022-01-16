@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class authpage1 extends AppCompatActivity {
 
     EditText enternumber;
-    Button getotpbutton;
+    Button getotpbutton,admin_login_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class authpage1 extends AppCompatActivity {
 
         enternumber = findViewById(R.id.input_mobile_number);
         getotpbutton = findViewById(R.id.getotp_btn);
+        admin_login_btn=findViewById(R.id.adminlogin_btn);
         ProgressBar progressBar = findViewById(R.id.progressbar_sending_otp);
 
         //When Button is clicked
@@ -85,6 +86,16 @@ public class authpage1 extends AppCompatActivity {
                 } else {
                     Toast.makeText(authpage1.this, "Please Enter Mobile Number", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        //When Click on Admin Login Button
+        admin_login_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent adminloginIntent=new Intent(getApplicationContext(),adminlogin.class);
+                startActivity(adminloginIntent);
+                finish();
             }
         });
     }

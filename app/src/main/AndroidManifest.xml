@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CropManagement">
         <activity
+            android:name=".add_crop_admin"
+            android:exported="false" />
+        <activity
+            android:name=".adminlogin"
+            android:exported="false" />
+        <activity
             android:name=".home"
             android:exported="true">
             <intent-filter>
@@ -23,9 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".authpage1"
-            android:exported="false">
-
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>
