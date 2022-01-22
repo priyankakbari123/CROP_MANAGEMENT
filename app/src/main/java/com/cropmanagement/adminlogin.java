@@ -45,7 +45,7 @@ public class adminlogin extends AppCompatActivity {
 //                            }
                             if(snapshot.child("userId").exists() && snapshot.child("password").exists()){
                                 if(Id.equals(snapshot.child("userId").getValue().toString()) && Pass.equals(snapshot.child("password").getValue().toString())){
-                                    Intent addCropByAdmin =new Intent(getApplicationContext(),add_crop_admin.class);
+                                    Intent addCropByAdmin =new Intent(getApplicationContext(), add_crop_event_admin.class);
                                     startActivity(addCropByAdmin);
                                     finish();
                                 }else{

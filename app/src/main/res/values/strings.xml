@@ -28,4 +28,10 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="get_otp">GET OTP</string>
+    <string name="add_event_for_crop">Add Event for Crop</string>
+    <string name="crop_name">Crop Name:</string>
+    <string name="day">Day :</string>
+    <string name="title">Title :</string>
+    <string name="details">Details :</string>
+    <string name="add_details">Add Details</string>
 </resources>

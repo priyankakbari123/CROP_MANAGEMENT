@@ -10,13 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CropManagement">
         <activity
-            android:name=".add_crop_admin"
+            android:name=".subsidy"
             android:exported="false" />
         <activity
-            android:name=".adminlogin"
-            android:exported="false" />
-        <activity
-            android:name=".home"
+            android:name=".Home"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".add_crop_event_admin"
+            android:exported="false"/>
+        <activity
+            android:name=".adminlogin"
+            android:exported="false" />
+        <activity
+            android:name=".add_crop"
+            android:exported="false"/>
         <activity
             android:name=".authpage2"
             android:exported="false" />

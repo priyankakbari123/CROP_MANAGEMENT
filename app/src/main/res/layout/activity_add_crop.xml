@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_crop"
+    android:orientation="vertical"
+    android:hardwareAccelerated="false"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30sp"
+        android:layout_margin="20sp"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:text="@string/add_crop" />
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/which_crop_you_are_growing"
+            android:textSize="22sp"
+            android:layout_margin="30sp"
+            />
+
+        <!--    dropdown for selecting crop    -->
+        <Spinner
+            android:id="@+id/crop_spinner"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="55sp"
+            android:layout_marginRight="55sp"
+            android:layout_marginBottom="30sp"
+            />
+
+
+
+
+
+
+<!--    Input box for adding Area-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_farm_area_in_acres"
+        android:textSize="16sp"
+        android:layout_margin="30sp"/>
+
+    <EditText
+        android:id="@+id/crop_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60sp"
+        android:layout_marginRight="60sp"
+        android:inputType="number"/>
+
+<!--    ENTERING SHOWING DATE-->
+    <TextView
+        android:id="@+id/showingDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/when_has_the_crop_been_sown"
+        android:textSize="18sp"
+        android:layout_margin="30sp"/>
+    <Button
+        android:id="@+id/showing_datePickerBtn"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="@string/select_date"
+        android:textSize="18sp"
+        style="?android:spinnerStyle"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/showingDateText"
+        android:layout_marginTop="10dp"
+        android:onClick="openDatePicker"/>
+
+<!--    ADD CROP BUTTON-->
+    <Button
+        android:id="@+id/addcropbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_crop"
+        android:layout_marginBottom="20sp"
+        android:layout_marginTop="60sp"
+        />
+
+<!--    LOGOUT-->
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30sp"
+        android:text="@string/logout"
+
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:itemBackground="@color/white"
+        app:menu="@menu/bottom_navigation" />
+
+</LinearLayout>

@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class add_crop_admin extends AppCompatActivity {
+public class add_crop_event_admin extends AppCompatActivity {
     String crop_name,cropId;
     EditText day,title,details;
     DatabaseReference ref;
@@ -21,7 +21,7 @@ public class add_crop_admin extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_crop_admin);
+        setContentView(R.layout.activity_add_crop_event_admin);
 
         day=findViewById(R.id.s_day);
         title=findViewById(R.id.s_title);
@@ -67,10 +67,10 @@ public class add_crop_admin extends AppCompatActivity {
                     ref= FirebaseDatabase.getInstance().getReference("Schedule").child(cropId).child(Integer.toString(schedule1.getDay()));
                     ref.child("Title").setValue(schedule1.getTitle());
                     ref.child("Details").setValue(schedule1.getDetails());
-                    Toast.makeText(add_crop_admin.this, "Details Added Successfully", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(add_crop_event_admin.this, "Details Added Successfully", Toast.LENGTH_SHORT).show();
 
                 }else{
-                    Toast.makeText(add_crop_admin.this, "Please Fill All the Fields ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(add_crop_event_admin.this, "Please Fill All the Fields ", Toast.LENGTH_SHORT).show();
                 }
 
 

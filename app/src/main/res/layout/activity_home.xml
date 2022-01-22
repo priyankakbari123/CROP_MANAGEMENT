@@ -1,100 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home"
-    android:orientation="vertical"
-    android:layout_margin="10dp"
-    android:gravity="center">
+    android:hardwareAccelerated="false"
+    tools:context=".Home">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        android:layout_margin="20sp"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:text="@string/add_crop" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-
-    <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/which_crop_you_are_growing"
-            android:textSize="22sp"
-            android:layout_margin="30sp"
-            />
+            android:layout_margin="10sp"
+            android:orientation="vertical">
 
-        <!--    dropdown for selecting crop    -->
-        <Spinner
-            android:id="@+id/crop_spinner"
-            android:layout_width="150sp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="55sp"
-            android:layout_marginRight="55sp"
-            android:layout_marginBottom="30sp"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="YOUR CROPS"
+                android:textSize="30sp" />
 
 
+            <RelativeLayout
+                android:id="@+id/rel_layout1"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="7dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bk2">
+
+                <TextView
+                    android:id="@+id/tv_crop_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp"
+                    android:text="Cotton"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/view_schedule_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View Schedule" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_layout2"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="7dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bk3">
+
+                <TextView
+                    android:id="@+id/tv_crop_wheat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp"
+                    android:text="Wheat"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/view_schedule_wheat_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View Schedule" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_layout3"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="7dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/round_bk5">
+
+                <TextView
+                    android:id="@+id/tv_crop_onion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="25dp"
+                    android:text="Onion"
+                    android:textSize="40sp" />
+
+                <Button
+                    android:id="@+id/view_schedule_onion_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:background="#00000000"
+                    android:padding="20dp"
+                    android:text="View Schedule" />
+            </RelativeLayout>
 
 
+        </LinearLayout>
+    </ScrollView>
 
-
-<!--    Input box for adding Area-->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_farm_area_in_acres"
-        android:textSize="16sp"
-        android:layout_margin="30sp"/>
-
-    <EditText
-        android:id="@+id/crop_area"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="60sp"
-        android:layout_marginRight="60sp"
-        android:inputType="number"/>
-
-<!--    ENTERING SHOWING DATE-->
-    <TextView
-        android:id="@+id/showingDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/when_has_the_crop_been_sown"
-        android:textSize="18sp"
-        android:layout_margin="30sp"/>
-    <Button
-        android:id="@+id/showing_datePickerBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:text="@string/select_date"
-        android:textSize="18sp"
-        style="?android:spinnerStyle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/showingDateText"
-        android:layout_marginTop="10dp"
-        android:onClick="openDatePicker"/>
-
-<!--    ADD CROP BUTTON-->
-    <Button
-        android:id="@+id/addcropbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/add_crop"
-        android:layout_margin="30sp"/>
-
-<!--    LOGOUT-->
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/logout"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="0dp"
+        app:itemBackground="@color/white"
+        app:menu="@menu/bottom_navigation" />
 
 
-</LinearLayout>
+</RelativeLayout>

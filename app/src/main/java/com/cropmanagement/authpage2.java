@@ -75,7 +75,7 @@ public class authpage2 extends AppCompatActivity {
                                         progressbar_verifyotp.setVisibility(View.GONE);
                                         verifybuttonclick.setVisibility(View.VISIBLE);
                                         if(task.isSuccessful()){
-                                            Intent intent=new Intent(getApplicationContext(),home.class);
+                                            Intent intent=new Intent(getApplicationContext(), Home.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(intent);
                                         }else{

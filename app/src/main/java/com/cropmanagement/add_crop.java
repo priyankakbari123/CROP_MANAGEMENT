@@ -10,6 +10,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -25,15 +27,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.ktx.Firebase;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-public class home extends AppCompatActivity {
+public class add_crop extends AppCompatActivity {
     public String crop_name,UID,cropId;
     private FirebaseAuth mFirebaseAuth;
     private DatePickerDialog datePickerDialog;
@@ -42,15 +42,43 @@ public class home extends AppCompatActivity {
     EditText farmArea;
     FirebaseDatabase rootNode;
     DatabaseReference reference,reference1,crop_ref;
+    BottomNavigationView bottomNav;
     int s_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_add_crop);
         mFirebaseAuth=FirebaseAuth.getInstance();
 
         crop_ref=FirebaseDatabase.getInstance().getReference().child("crops");
+
+        //BOTTOM NAVIGATION
+        bottomNav=findViewById(R.id.bottom_nav);
+        bottomNav.setSelectedItemId(R.id.nav_add_crop);
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuitem) {
+                CharSequence title = menuitem.getTitle();
+                if ("Home".contentEquals(title)) {
+                    Intent intent1 = new Intent(getApplicationContext(), Home.class);
+                    startActivity(intent1);
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if ("Add Crop".contentEquals(title)) {
+                    Intent intent2 = new Intent(getApplicationContext(), add_crop.class);
+                    startActivity(intent2);
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if ("Subsidy".contentEquals(title)) {
+                    Intent intent3 = new Intent(getApplicationContext(), subsidy.class);
+                    startActivity(intent3);
+                    overridePendingTransition(0, 0);
+                    return true;
+                }
+                return false;
+            }
+        });
 
 
 //GETTING MAX SOWING_ID ----------------------------------------------------------------------------
@@ -113,7 +141,7 @@ public class home extends AppCompatActivity {
 //                    @Override
 //                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                        cropId=snapshot.getValue().toString();
-//                        Toast.makeText(home.this, snapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(add_crop.this, snapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
 //                    }
 //
 //                    @Override
@@ -137,9 +165,9 @@ public class home extends AppCompatActivity {
 //                    //CONVERT SOWING DATE INTO STRING FOR PRINTING PURPOSE
 //                    SimpleDateFormat postFormater = new SimpleDateFormat("dd/MM/yyyy");
 //                    String sowing_date_s = postFormater.format(sowingDate);
-//                    Toast.makeText(home.this,sowing_date_s,Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(add_crop.this,sowing_date_s,Toast.LENGTH_SHORT).show();
 //                } catch (ParseException e) {
-//                    Toast.makeText(home.this,"Something went Wrong 72 !",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(add_crop.this,"Something went Wrong 72 !",Toast.LENGTH_SHORT).show();
 //                    e.printStackTrace();
 //                }
 
@@ -147,13 +175,13 @@ public class home extends AppCompatActivity {
 //GETTING FARM AREA ----------------------------------------------------------------------------------------
                 farmArea = findViewById(R.id.crop_area);
                 if(farmArea.getText().toString().equals("")){
-                    Toast.makeText(home.this, "Please Enter Area ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(add_crop.this, "Please Enter Area ", Toast.LENGTH_SHORT).show();
                 }else{
                     area = Integer.parseInt(farmArea.getText().toString());   //AREA OF FARM
                     sd.Area=area;
                 }
 
-                Toast.makeText(home.this, s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(add_crop.this, s, Toast.LENGTH_SHORT).show();
 
 //CURRENT USERID ------------------------------------------------------------------------------------------
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -181,6 +209,7 @@ public class home extends AppCompatActivity {
                 //STORE DATA INTO FIREBASE
                 reference1=FirebaseDatabase.getInstance().getReference().child("sowing_details").child(Integer.toString(s_id));
                 reference1.setValue(sd);
+                Toast.makeText(add_crop.this, "Crop Added Sucessfully", Toast.LENGTH_SHORT).show();
 
             }
         });
