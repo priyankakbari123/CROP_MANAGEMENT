@@ -5,7 +5,7 @@ import java.util.Date;
 class sowing_details {
     String crop_id,farmer_id;
     Date sowing_date;
-    int Area,sowing_id;
+    int area,sowing_id;
 //SETTERS
     public void setCrop_id(String crop_id) {
         this.crop_id = crop_id;
@@ -20,7 +20,11 @@ class sowing_details {
     }
 
     public void setArea(int area) {
-        Area = area;
+        area = area;
+    }
+
+    public void setSowing_id(int sid) {
+        sowing_id = sid;
     }
 
     //GETTERS
@@ -38,7 +42,7 @@ class sowing_details {
     }
 
     public int getArea() {
-        return Area;
+        return area;
     }
 
 
@@ -47,7 +51,7 @@ class sowing_details {
         this.crop_id = crop_id;
         this.farmer_id = farmer_id;
         this.sowing_date = showing_date;
-        Area = area;
+        this.area = area;
         sowing_id=sid;
     }
     public sowing_details(){};

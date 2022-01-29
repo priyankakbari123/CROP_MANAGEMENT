@@ -125,17 +125,8 @@ public class add_crop extends AppCompatActivity {
 
 //ASSIGN CROP ID ACCORDING TO CROP SELECTED
                 crop_name = (String) spinner.getSelectedItem();
-                switch (crop_name){
-                    case "Cotton":
-                        cropId="c1_cotton";
-                        break;
-                    case "Wheat":
-                        cropId="c2_wheat";
-                        break;
-                    case "Onion":
-                        cropId="c3_onion";
-                        break;
-                }
+                cropId=GetCropID(crop_name);
+
 //                crop_ref=crop_ref.child(crop_name).child("crop_id");
 //                crop_ref.addValueEventListener(new ValueEventListener() {
 //                    @Override
@@ -178,15 +169,14 @@ public class add_crop extends AppCompatActivity {
                     Toast.makeText(add_crop.this, "Please Enter Area ", Toast.LENGTH_SHORT).show();
                 }else{
                     area = Integer.parseInt(farmArea.getText().toString());   //AREA OF FARM
-                    sd.Area=area;
+                    sd.area=area;
                 }
 
-                Toast.makeText(add_crop.this, s, Toast.LENGTH_SHORT).show();
 
 //CURRENT USERID ------------------------------------------------------------------------------------------
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
                 UID = currentFirebaseUser.getUid();
-                sd.farmer_id=UID;
+//                sd.farmer_id=UID;
 
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 Date date = null;
@@ -199,15 +189,14 @@ public class add_crop extends AppCompatActivity {
 
 //GENERATE UNIQUE SOWING_DETAILS_ID -----------------------------------------------------------------------
                 s_id=s_id+1;
-                sd.sowing_id=s_id;
+                sd.setSowing_id(s_id);
                 reference.setValue(s_id);
 
 
 //MAKE OBJECT OF SOWING_DETAILS CLASS AND STORE DATA INTO DATABASE ----------------------------------------
-//                sowing_details sd = new sowing_details(s_id,cropId, UID, date, area);
 
                 //STORE DATA INTO FIREBASE
-                reference1=FirebaseDatabase.getInstance().getReference().child("sowing_details").child(Integer.toString(s_id));
+                reference1=FirebaseDatabase.getInstance().getReference().child("sowing_details").child(UID).child(Integer.toString(sd.sowing_id));
                 reference1.setValue(sd);
                 Toast.makeText(add_crop.this, "Crop Added Sucessfully", Toast.LENGTH_SHORT).show();
 
@@ -314,6 +303,18 @@ public class add_crop extends AppCompatActivity {
         mFirebaseAuth.signOut();
         startActivity(new Intent(this,authpage1.class));
         finish();
+    }
+//GETTING CROPID FROM CROPNAME
+    String GetCropID(String CropName){
+        switch (CropName){
+            case "Cotton":
+                return "c1_cotton";
+            case "Wheat":
+                return "c2_wheat";
+            case "Onion":
+                return "c3_onion";
+        }
+        return "Something Went Wrong";
     }
 
 
