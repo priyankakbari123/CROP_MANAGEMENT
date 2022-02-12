@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/CropManagement/app/src/main/res/drawable/rectanglebox.xml" value="0.15989583333333332" />
+        <entry key="..\:/Projects/CropManagement/app/src/main/res/drawable/schedule_card.xml" value="0.290625" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_EnterMobileNo.xml" value="0.15729166666666666" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_EnterOtp.xml" value="0.14322916666666666" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_add_crop.xml" value="0.26132246376811596" />
@@ -15,8 +16,10 @@
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_enterotp.xml" value="0.14375" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_home.xml" value="0.21331521739130435" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_main.xml" value="0.23233695652173914" />
+        <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_schedule.xml" value="0.2463768115942029" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/layout/activity_subsidy.xml" value="0.2604166666666667" />
         <entry key="..\:/Projects/CropManagement/app/src/main/res/menu/bottom_navigation.xml" value="0.2604166666666667" />
+        <entry key="..\:/Projects/CropManagement/app/src/main/res/menu/logout_menu.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/CropManagement/app/src/main/res/layout/activity_main.xml" value="0.4" />
       </map>
     </option>

@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".add_crop"
-    android:orientation="vertical"
     android:hardwareAccelerated="false"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30sp"
-        android:layout_margin="20sp"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:text="@string/add_crop" />
+        android:orientation="vertical"
+        android:layout_margin="10sp"
+        android:gravity="center">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20sp"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="@string/add_crop"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
 
 
     <TextView
@@ -24,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/which_crop_you_are_growing"
             android:textSize="22sp"
-            android:layout_margin="30sp"
+            android:layout_margin="20sp"
             />
 
         <!--    dropdown for selecting crop    -->
@@ -38,18 +47,13 @@
             />
 
 
-
-
-
-
 <!--    Input box for adding Area-->
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_farm_area_in_acres"
-        android:textSize="16sp"
-        android:layout_margin="30sp"/>
+        android:textSize="18sp"
+        android:layout_margin="15sp"/>
 
     <EditText
         android:id="@+id/crop_area"
@@ -58,6 +62,25 @@
         android:layout_marginLeft="60sp"
         android:layout_marginRight="60sp"
         android:inputType="number"/>
+
+
+        <!--    Input box for adding Area-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/in_which_farm_crop_is_sown"
+            android:textSize="18sp"
+            android:layout_margin="25sp"/>
+
+        <EditText
+            android:id="@+id/farm_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:inputType="text"/>
+
 
 <!--    ENTERING SHOWING DATE-->
     <TextView
@@ -77,7 +100,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showingDateText"
-        android:layout_marginTop="10dp"
         android:onClick="openDatePicker"/>
 
 <!--    ADD CROP BUTTON-->
@@ -87,25 +109,44 @@
         android:layout_height="wrap_content"
         android:text="@string/add_crop"
         android:layout_marginBottom="20sp"
-        android:layout_marginTop="60sp"
+        android:layout_marginTop="40sp"
+        android:paddingHorizontal="20sp"
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
+        android:background="@drawable/rectanglebox"
         />
 
 <!--    LOGOUT-->
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30sp"
-        android:text="@string/logout"
+<!--    <Button-->
+<!--        android:id="@+id/logout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginBottom="30sp"-->
+<!--        android:text="@string/logout"-->
 
-        />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+    </LinearLayout>
+<!--        />-->
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        app:itemBackground="@color/white"
-        app:menu="@menu/bottom_navigation" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:gravity="bottom">
 
-</LinearLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottom_nav"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            app:itemBackground="@color/white"
+            app:menu="@menu/bottom_navigation" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

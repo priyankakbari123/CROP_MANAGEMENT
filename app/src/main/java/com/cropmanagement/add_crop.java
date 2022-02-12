@@ -10,6 +10,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -34,12 +36,12 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class add_crop extends AppCompatActivity {
-    public String crop_name,UID,cropId;
+    public String crop_name,UID,cropId,farm_name;
     private FirebaseAuth mFirebaseAuth;
     private DatePickerDialog datePickerDialog;
     private Button dateButton;
     public int area;
-    EditText farmArea;
+    EditText farmArea,farmName;
     FirebaseDatabase rootNode;
     DatabaseReference reference,reference1,crop_ref;
     BottomNavigationView bottomNav;
@@ -103,14 +105,14 @@ public class add_crop extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
 //------------------------------------------------------------------------------------------------------------------------------------------
-        //LOGOUT BUTTON ON CLICK
-        final Button logoutbtn=findViewById(R.id.logout);
-        logoutbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout(view);
-            }
-        });
+//        LOGOUT BUTTON ON CLICK
+//        final Button logoutbtn=findViewById(R.id.logout);
+//        logoutbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                logout(view);
+//            }
+//        });
 
 //------------------------------------------------------------------------------------------------------------------------------------------
         //ONCLICK ON ADD CROP BUTTON
@@ -169,9 +171,17 @@ public class add_crop extends AppCompatActivity {
                     Toast.makeText(add_crop.this, "Please Enter Area ", Toast.LENGTH_SHORT).show();
                 }else{
                     area = Integer.parseInt(farmArea.getText().toString());   //AREA OF FARM
-                    sd.area=area;
+                    sd.setArea(area);
                 }
 
+//GETTING FARM NAME ---------------------------------------------------------------------------------------
+                farmName=findViewById(R.id.farm_name);
+                if(farmName.getText().toString().equals("")){
+                    Toast.makeText(add_crop.this, "Please Enter Farm Name ", Toast.LENGTH_SHORT).show();
+                }else{
+                    farm_name = farmName.getText().toString();   //AREA OF FARM
+                    sd.setFarm_name(farm_name);
+                }
 
 //CURRENT USERID ------------------------------------------------------------------------------------------
                 FirebaseUser currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -199,7 +209,8 @@ public class add_crop extends AppCompatActivity {
                 reference1=FirebaseDatabase.getInstance().getReference().child("sowing_details").child(UID).child(Integer.toString(sd.sowing_id));
                 reference1.setValue(sd);
                 Toast.makeText(add_crop.this, "Crop Added Sucessfully", Toast.LENGTH_SHORT).show();
-
+                Intent intent=new Intent(getApplicationContext(),Home.class);
+                startActivity(intent);
             }
         });
 
@@ -208,6 +219,26 @@ public class add_crop extends AppCompatActivity {
         initDatePicker();
         dateButton = findViewById(R.id.showing_datePickerBtn);
         dateButton.setText(getTodaysDate());
+    }
+
+//ADDING LOGOUT MENU ----------------------------------------------------------------------------
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.logout_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        mFirebaseAuth=FirebaseAuth.getInstance();
+        if(item.getItemId()==R.id.logout){
+            mFirebaseAuth.signOut();
+            startActivity(new Intent(this,authpage1.class));
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 //------------------------------------------------------------------------------------------------------------------------------------------

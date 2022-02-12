@@ -1,11 +1,18 @@
 package com.cropmanagement;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
 class sowing_details {
-    String crop_id,farmer_id;
+    String crop_id,farmer_id,farm_name;
     Date sowing_date;
-    int area,sowing_id;
+    int area;
+
+
+
+    int sowing_id;
 //SETTERS
     public void setCrop_id(String crop_id) {
         this.crop_id = crop_id;
@@ -13,10 +20,6 @@ class sowing_details {
 
     public void setFarmer_id(String farmer_id) {
         this.farmer_id = farmer_id;
-    }
-
-    public void setShowing_date(Date showing_date) {
-        this.sowing_date = showing_date;
     }
 
     public void setArea(int area) {
@@ -27,6 +30,9 @@ class sowing_details {
         sowing_id = sid;
     }
 
+    public void setFarm_name(String farm_name) {
+        this.farm_name = farm_name;
+    }
     //GETTERS
 
     public String getCrop_id() {
@@ -37,17 +43,23 @@ class sowing_details {
         return farmer_id;
     }
 
-    public Date getShowing_date() {
-        return sowing_date;
-    }
-
     public int getArea() {
         return area;
     }
 
+    public Date getSowing_date() {
+        return sowing_date;
+    }
 
+    public int getSowing_id() {
+        return sowing_id;
+    }
 
-    public sowing_details(int sid,String crop_id, String farmer_id, Date showing_date, int area) {
+    public String getFarm_name() {
+        return farm_name;
+    }
+
+    public sowing_details(int sid, String crop_id, String farmer_id, Date showing_date, int area) {
         this.crop_id = crop_id;
         this.farmer_id = farmer_id;
         this.sowing_date = showing_date;
@@ -55,6 +67,8 @@ class sowing_details {
         sowing_id=sid;
     }
     public sowing_details(){};
+
+
 
 
 }

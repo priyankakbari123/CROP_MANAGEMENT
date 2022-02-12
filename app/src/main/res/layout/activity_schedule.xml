@@ -5,44 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:hardwareAccelerated="false"
-    tools:context=".Home">
 
+    tools:context=".schedule">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="57dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/linear_layout"
+            android:id="@+id/schedule_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10sp"
             android:orientation="vertical">
 
+
             <TextView
-                android:id="@+id/crops_textview"
+                android:id="@+id/crop_schedule_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:text="@string/your_crops"
                 android:textSize="30sp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="@string/crop_schedule"/>
 
-<!--            HERE CARD WILL BE ADDED-->
+            <TextView
+                android:id="@+id/crop_schedule_cropName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textSize="22sp"
+                android:layout_gravity="center"
+                android:text=""/>
+
+<!--            CROP SCHEDULE is PLACED HERE-->
 
 
         </LinearLayout>
     </ScrollView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginBottom="0dp"
-        app:itemBackground="@color/white"
-        app:menu="@menu/bottom_navigation" />
 
 
 </RelativeLayout>

@@ -1,15 +1,15 @@
 package com.cropmanagement;
 
 public class crop_schedule {
-    String crop_id,title,details;
+    String crop_id,Title,Details;
     int day;
 
     crop_schedule(){};
 
     public crop_schedule(String crop_id, String title, String details, int day) {
         this.crop_id = crop_id;
-        this.title = title;
-        this.details = details;
+        this.Title = title;
+        this.Details = details;
         this.day = day;
     }
 
@@ -24,19 +24,19 @@ public class crop_schedule {
     }
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.Title = title;
     }
 
     public String getDetails() {
-        return details;
+        return Details;
     }
 
     public void setDetails(String details) {
-        this.details = details;
+        this.Details = details;
     }
 
     public int getDay() {
