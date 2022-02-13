@@ -155,22 +155,22 @@ public class schedule extends AppCompatActivity {
 //        text3.setShadowLayer(2,2,2,Color.BLACK);
         text3.setId(text_id+2000);
 
-        RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,420);
+        RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams date_dimension = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams title_dimension = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams details_dim=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         layout_dimension.addRule(RelativeLayout.BELOW);
-        layout_dimension.setMargins(17,50,17,10);
+        layout_dimension.setMargins(17,50,17,25);
 
-        layout.setBackgroundResource(R.drawable.template); //change background based on crop name
+        layout.setBackgroundResource(R.drawable.schedule_card); //change background based on crop name
         layout.setLayoutParams(layout_dimension);
         layout.setPadding(50,20,20,20);
         linearLayout.addView(layout,layout_dimension);
 
         date_dimension.addRule(RelativeLayout.BELOW, layout.getId());
         text1.setLayoutParams(date_dimension);
-        text1.setPadding(25,45,25,25);;
+        text1.setPadding(25,45,25,0);;
         layout.addView(text1);
 
         title_dimension.addRule(RelativeLayout.BELOW, text_id);
@@ -180,7 +180,7 @@ public class schedule extends AppCompatActivity {
 
         details_dim.addRule(RelativeLayout.BELOW, text_id+1000);
         text3.setLayoutParams(details_dim);
-        text3.setPadding(25,25,25,0);
+        text3.setPadding(25,25,25,20);
         layout.addView(text3);
 
     }

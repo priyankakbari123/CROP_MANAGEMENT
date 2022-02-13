@@ -45,8 +45,8 @@ public class adminlogin extends AppCompatActivity {
 //                            }
                             if(snapshot.child("userId").exists() && snapshot.child("password").exists()){
                                 if(Id.equals(snapshot.child("userId").getValue().toString()) && Pass.equals(snapshot.child("password").getValue().toString())){
-                                    Intent addCropByAdmin =new Intent(getApplicationContext(), add_crop_event_admin.class);
-                                    startActivity(addCropByAdmin);
+                                    Intent AdminHome =new Intent(getApplicationContext(), AdminHome.class);
+                                    startActivity(AdminHome);
                                     finish();
                                 }else{
                                     Toast.makeText(adminlogin.this, "Please Enter Valid Credentials !", Toast.LENGTH_SHORT).show();

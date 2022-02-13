@@ -37,4 +37,5 @@
     <string name="your_crops">YOUR CROPS</string>
     <string name="in_which_farm_crop_is_sown">In Which Farm Crop is Sown?</string>
     <string name="logout">Logout</string>
+    <string name="admin_login">Admin Login</string>
 </resources>

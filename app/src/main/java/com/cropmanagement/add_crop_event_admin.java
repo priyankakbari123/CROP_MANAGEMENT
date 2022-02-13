@@ -2,6 +2,7 @@ package com.cropmanagement;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -78,5 +79,11 @@ public class add_crop_event_admin extends AppCompatActivity {
         });
 
 
+    }
+
+    public void RedirectAdminHome(View view) {
+        Intent intent=new Intent(getApplicationContext(),AdminHome.class);
+        startActivity(intent);
+        finish();
     }
 }

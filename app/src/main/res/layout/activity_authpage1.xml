@@ -109,10 +109,12 @@
             android:id="@+id/adminlogin_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Admin Login"
+            android:text="@string/admin_login"
             android:layout_margin="60dp"
             android:textStyle="bold"
             android:alpha="0.9"
+            android:background="@drawable/rectangle"
+            android:padding="10sp"
             android:textSize="20sp" />
 
 

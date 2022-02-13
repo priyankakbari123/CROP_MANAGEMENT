@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CropManagement">
         <activity
+            android:name=".AdminHome"
+            android:exported="false" />
+        <activity
             android:name=".schedule"
             android:exported="false" />
         <activity
