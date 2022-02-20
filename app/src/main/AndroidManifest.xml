@@ -10,13 +10,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CropManagement">
         <activity
+            android:name=".subsidy_details_activity"
+            android:exported="false" />
+        <activity
+            android:name=".add_subsidy_admin"
+            android:exported="false" />
+        <activity
             android:name=".AdminHome"
             android:exported="false" />
         <activity
             android:name=".schedule"
             android:exported="false" />
         <activity
-            android:name=".subsidy"
+            android:name=".subsidies_activity"
             android:exported="false" />
         <activity
             android:name=".Home"
@@ -41,7 +47,8 @@
             android:exported="false" />
         <activity
             android:name=".authpage1"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
     </application>
 
 </manifest>

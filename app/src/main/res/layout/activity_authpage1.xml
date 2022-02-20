@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     tools:context=".authpage1"
+    android:background="@drawable/bg1"
     tools:ignore="SpeakableTextPresentCheck">
 
     <LinearLayout
@@ -18,17 +20,17 @@
             android:id="@+id/image_sendotp"
             android:layout_width="377dp"
             android:layout_height="95dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/loginicon"></ImageView>
+            android:layout_marginTop="25dp"
+            android:src="@drawable/loginicon"/>
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="25sp"
             android:textSize="40sp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:text="@string/login" />
 
@@ -38,7 +40,8 @@
             android:layout_height="wrap_content"
             android:text="@string/please_enter_mobile_number_for_otp_verification"
             android:textAlignment="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="70sp"
+            android:textColor="@color/white"
             android:textSize="18sp"/>
 
         <LinearLayout
@@ -49,8 +52,9 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:layout_marginTop="50dp"
-            android:padding="5dp"
-            android:background="@drawable/rectanglebox">
+            android:paddingHorizontal="7dp"
+            android:paddingVertical="7sp"
+            android:background="@drawable/white_rectangle">
 
 
             <TextView
@@ -62,7 +66,7 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:text="+91"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 />
 
             <EditText
@@ -78,6 +82,9 @@
                 android:importantForAutofill="no"
                 android:textSize="20sp"
                 android:inputType="phone"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:focusedByDefault="true"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
         <FrameLayout
@@ -86,11 +93,15 @@
 
             <Button
                 android:id="@+id/getotp_btn"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/white_rectangle"
+                android:textColor="@color/white"
                 android:text="@string/get_otp"
                 android:layout_margin="60dp"
                 android:textStyle="bold"
+                android:paddingHorizontal="20sp"
                 android:textSize="20sp" />
             
             <ProgressBar
@@ -110,7 +121,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/admin_login"
-            android:layout_margin="60dp"
+            android:layout_marginTop="80sp"
             android:textStyle="bold"
             android:alpha="0.9"
             android:background="@drawable/rectangle"

@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
+    android:background="@drawable/gradient1"
     tools:context=".authpage2">
 
     //Top Section
@@ -19,7 +20,7 @@
             android:layout_width="377dp"
             android:layout_height="95dp"
             android:layout_marginTop="60dp"
-            android:src="@drawable/otpverify"></ImageView>
+            android:src="@drawable/otpverify"/>
 
         <TextView
             android:id="@+id/textView"
@@ -28,7 +29,7 @@
             android:layout_marginTop="50dp"
             android:textSize="40sp"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
             android:text="@string/otp_verification" />
 
@@ -38,6 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/please_enter_otp"
             android:textAlignment="center"
+            android:textColor="@color/white"
             android:layout_marginTop="40dp"
             android:textSize="20sp"/>
 
@@ -53,7 +55,7 @@
             android:gravity="center"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             />
 
 <!--###################################################-->
@@ -71,27 +73,27 @@
                 android:layout_width="40dp"
                 android:layout_height="46dp"
                 android:layout_margin="2dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:textStyle="bold"
-                tools:ignore="SpeakableTextPresentCheck"></EditText>
+                tools:ignore="SpeakableTextPresentCheck"/>
             <EditText
                 android:id="@+id/inputotp2"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_margin="2dp"
                 android:textStyle="bold" >
@@ -100,13 +102,13 @@
                 android:id="@+id/inputotp3"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_margin="2dp"
                 android:textStyle="bold" >
@@ -115,13 +117,13 @@
                 android:id="@+id/inputotp4"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_margin="2dp"
                 android:textStyle="bold" >
@@ -130,13 +132,13 @@
                 android:id="@+id/inputotp5"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_margin="2dp"
                 android:textStyle="bold" >
@@ -145,13 +147,13 @@
                 android:id="@+id/inputotp6"
                 android:layout_width="40dp"
                 android:layout_height="46dp"
-                android:background="@drawable/rectanglebox"
+                android:background="@drawable/white_rectangle"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="24dp"
                 android:layout_margin="2dp"
                 android:textStyle="bold" >
@@ -173,6 +175,7 @@
                 android:id="@+id/otpnotreceived"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
                 android:text="Didn't Receive OTP ?"
                 android:textSize="18sp"/>
 
@@ -182,7 +185,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="10dp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="RESEND OTP AGAIN" />
@@ -196,8 +199,12 @@
 
             <Button
                 android:id="@+id/verify_otp"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingHorizontal="20sp"
+                android:background="@drawable/white_rectangle"
+                android:textColor="@color/white"
                 android:text="Submit"
                 android:layout_margin="60dp"
                 android:textStyle="bold"

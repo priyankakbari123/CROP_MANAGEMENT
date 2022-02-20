@@ -25,4 +25,10 @@ public class AdminHome extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void RedirectToAddSubsidy(View view) {
+        Intent intent=new Intent(getApplicationContext(),add_subsidy_admin.class);
+        startActivity(intent);
+        finish();
+    }
 }

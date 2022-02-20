@@ -70,6 +70,7 @@ public class add_crop_event_admin extends AppCompatActivity {
                     ref.child("Details").setValue(schedule1.getDetails());
                     Toast.makeText(add_crop_event_admin.this, "Details Added Successfully", Toast.LENGTH_SHORT).show();
 
+
                 }else{
                     Toast.makeText(add_crop_event_admin.this, "Please Fill All the Fields ", Toast.LENGTH_SHORT).show();
                 }

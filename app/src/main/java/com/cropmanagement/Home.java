@@ -1,11 +1,7 @@
 package com.cropmanagement;
 
-import static com.cropmanagement.R.id.*;
-
-import static java.util.Objects.*;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
+import static com.cropmanagement.R.id.bottom_nav;
+import static com.cropmanagement.R.id.nav_home;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -18,10 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,11 +30,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Objects;
-import java.util.Vector;
 
 public class Home extends AppCompatActivity {
 
@@ -77,7 +71,7 @@ public class Home extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     } else if ("Subsidy".contentEquals(title)) {
-                        Intent intent3 = new Intent(getApplicationContext(), subsidy.class);
+                        Intent intent3 = new Intent(getApplicationContext(), subsidies_activity.class);
                         startActivity(intent3);
                         overridePendingTransition(0, 0);
                         return true;
@@ -107,8 +101,9 @@ public class Home extends AppCompatActivity {
                         sd_list.add(sd_obj);
                     }
                     //CREATE CARD FOR EVERY CROP
-                    for(sowing_details sd:sd_list){
-                        create_card(sd);
+//                     sowing_details sd:sd_list
+                    for(int i=sd_list.size()-1;i>=0;i--){
+                        create_card(sd_list.get(i));
                     }
                 }
 
@@ -118,9 +113,6 @@ public class Home extends AppCompatActivity {
                 }
             });
         }
-
-
-
     }
 
 

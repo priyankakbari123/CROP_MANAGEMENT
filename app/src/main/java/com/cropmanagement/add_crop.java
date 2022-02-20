@@ -53,7 +53,7 @@ public class add_crop extends AppCompatActivity {
         setContentView(R.layout.activity_add_crop);
         mFirebaseAuth=FirebaseAuth.getInstance();
 
-        crop_ref=FirebaseDatabase.getInstance().getReference().child("crops");
+//        crop_ref=FirebaseDatabase.getInstance().getReference().child("crops");
 
         //BOTTOM NAVIGATION
         bottomNav=findViewById(R.id.bottom_nav);
@@ -73,7 +73,7 @@ public class add_crop extends AppCompatActivity {
                     overridePendingTransition(0, 0);
                     return true;
                 } else if ("Subsidy".contentEquals(title)) {
-                    Intent intent3 = new Intent(getApplicationContext(), subsidy.class);
+                    Intent intent3 = new Intent(getApplicationContext(), subsidies_activity.class);
                     startActivity(intent3);
                     overridePendingTransition(0, 0);
                     return true;
@@ -349,4 +349,10 @@ public class add_crop extends AppCompatActivity {
     }
 
 
+    public void showDropDown(View view) {
+        Spinner spinner=findViewById(R.id.crop_spinner);
+        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.crops, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
 }

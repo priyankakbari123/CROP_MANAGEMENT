@@ -77,9 +77,10 @@ public class schedule extends AppCompatActivity {
                 }
 
                 //making schedule and make card for each event
+
                 for(crop_schedule cs:schedule_list){
 //                    Log.d("DETAILS: ",cs.Details);
-                    Date scheduleDate=addDays(sd_obj.getSowing_date(),cs.day);
+                    Date scheduleDate=addDays(sd_obj.getSowing_date(), cs.day);
                     create_card(scheduleDate,cs);
                 }
 
@@ -163,7 +164,7 @@ public class schedule extends AppCompatActivity {
         layout_dimension.addRule(RelativeLayout.BELOW);
         layout_dimension.setMargins(17,50,17,25);
 
-        layout.setBackgroundResource(R.drawable.schedule_card); //change background based on crop name
+        layout.setBackgroundResource(R.drawable.subsidy_cardbg); //change background based on crop name
         layout.setLayoutParams(layout_dimension);
         layout.setPadding(50,20,20,20);
         linearLayout.addView(layout,layout_dimension);

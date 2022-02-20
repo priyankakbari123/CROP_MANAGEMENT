@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".add_crop"
     android:hardwareAccelerated="false"
+    android:background="@drawable/bg2"
     android:gravity="center">
 
     <LinearLayout
@@ -20,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20sp"
-            android:layout_marginTop="20sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="20sp"
             android:text="@string/add_crop"
@@ -33,18 +33,38 @@
             android:layout_height="wrap_content"
             android:text="@string/which_crop_you_are_growing"
             android:textSize="22sp"
-            android:layout_margin="20sp"
+        android:layout_marginTop="20sp"
             />
 
         <!--    dropdown for selecting crop    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            android:layout_marginLeft="60sp"
+            android:layout_marginRight="60sp"
+            android:layout_marginTop="20sp"
+            android:background="@drawable/spinner_bg"
+            android:orientation="horizontal">
         <Spinner
             android:id="@+id/crop_spinner"
-            android:layout_width="150sp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55sp"
-            android:layout_marginRight="55sp"
-            android:layout_marginBottom="30sp"
-            />
+            android:layout_weight="5"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:spinnerMode="dropdown"
+            tools:ignore="Suspicious0dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:onClick="showDropDown"
+            android:src="@drawable/ic_drop_down_24" />
+
+        </LinearLayout>
+
 
 
 <!--    Input box for adding Area-->
@@ -53,14 +73,19 @@
         android:layout_height="wrap_content"
         android:text="@string/enter_farm_area_in_acres"
         android:textSize="18sp"
-        android:layout_margin="15sp"/>
+        android:layout_marginTop="40sp"
+        />
 
     <EditText
         android:id="@+id/crop_area"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40sp"
         android:layout_marginLeft="60sp"
         android:layout_marginRight="60sp"
+        android:layout_marginTop="20sp"
+        android:paddingHorizontal="5sp"
+        android:hint="@string/enter_farm_area"
+        android:background="@drawable/rectangle"
         android:inputType="number"/>
 
 
@@ -71,14 +96,18 @@
             android:layout_height="wrap_content"
             android:text="@string/in_which_farm_crop_is_sown"
             android:textSize="18sp"
-            android:layout_margin="25sp"/>
+            android:layout_marginTop="40sp"/>
 
         <EditText
             android:id="@+id/farm_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40sp"
             android:layout_marginLeft="60sp"
             android:layout_marginRight="60sp"
+            android:layout_marginTop="20sp"
+            android:paddingHorizontal="5sp"
+            android:background="@drawable/rectangle"
+            android:hint="@string/enter_farm_name"
             android:inputType="text"/>
 
 
@@ -89,11 +118,12 @@
         android:layout_height="wrap_content"
         android:text="@string/when_has_the_crop_been_sown"
         android:textSize="18sp"
-        android:layout_margin="30sp"/>
+        android:layout_marginTop="40sp"/>
     <Button
         android:id="@+id/showing_datePickerBtn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
         android:text="@string/select_date"
         android:textSize="18sp"
         style="?android:spinnerStyle"

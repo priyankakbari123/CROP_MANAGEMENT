@@ -6,7 +6,7 @@
     <string name="please_enter_otp">Please Enter Otp</string>
     <string name="in_how_much_area_you_are_growing_crop">In How much area you are growing crop ?</string>
     <string name="which_crop_you_are_growing">Which Crop You are growing</string>
-    <string name="add_crop">Add Crop</string>
+    <string name="add_crop">ADD CROP</string>
     <string name="enter_showing_date">Enter Showing Date</string>
     <string name="select_date">Select Date</string>
     <string name="when_has_the_crop_been_sown">When has the Crop been sown ?</string>
@@ -38,4 +38,14 @@
     <string name="in_which_farm_crop_is_sown">In Which Farm Crop is Sown?</string>
     <string name="logout">Logout</string>
     <string name="admin_login">Admin Login</string>
+    <string name="add_subsidy">ADD SUBSIDY</string>
+    <string name="subsidy_title">Subsidy Title</string>
+    <string name="details_about_subsidy">Details About Subsidy</string>
+    <string name="procedure_to_apply">Procedure to Apply</string>
+    <string name="home">HOME</string>
+    <string name="add_subsidy_">Add Subsidy</string>
+    <string name="add_event">ADD EVENT</string>
+    <string name="enter_farm_name">Enter Farm Name</string>
+    <string name="enter_farm_area">Enter Farm Area</string>
+
 </resources>
