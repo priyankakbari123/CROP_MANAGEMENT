@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     tools:context=".authpage1"
-    android:background="@drawable/bg1"
+    android:background="@drawable/authpage1bg"
     tools:ignore="SpeakableTextPresentCheck">
 
     <LinearLayout
@@ -16,12 +16,23 @@
         android:orientation="vertical">
 
 
-        <ImageView
-            android:id="@+id/image_sendotp"
-            android:layout_width="377dp"
-            android:layout_height="95dp"
-            android:layout_marginTop="25dp"
-            android:src="@drawable/loginicon"/>
+<!--        <ImageView-->
+<!--            android:id="@+id/image_sendotp"-->
+<!--            android:layout_width="377dp"-->
+<!--            android:layout_height="95dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:src="@drawable/loginicon"/>-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25sp"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="@string/welcome_to_farmer_friend"
+            android:fontFamily="@font/apalu"
+            />
 
         <TextView
             android:id="@+id/textView"
@@ -30,7 +41,8 @@
             android:layout_marginTop="25sp"
             android:textSize="40sp"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:fontFamily="@font/zcoolqing"
             android:textStyle="bold"
             android:text="@string/login" />
 
@@ -41,7 +53,8 @@
             android:text="@string/please_enter_mobile_number_for_otp_verification"
             android:textAlignment="center"
             android:layout_marginTop="70sp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
+            android:fontFamily="@font/ptserifregular"
             android:textSize="18sp"/>
 
         <LinearLayout
@@ -54,7 +67,7 @@
             android:layout_marginTop="50dp"
             android:paddingHorizontal="7dp"
             android:paddingVertical="7sp"
-            android:background="@drawable/white_rectangle">
+            android:background="@drawable/blackround_rectangle">
 
 
             <TextView
@@ -65,8 +78,9 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:layout_weight="1"
-                android:text="+91"
-                android:textColor="@color/white"
+                android:text="@string/_91"
+                android:fontFamily="@font/exo2"
+                android:textColor="@color/black"
                 />
 
             <EditText
@@ -75,33 +89,34 @@
                 android:layout_height="40dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:ems="10"
-                android:hint="Mobile Number"
+                android:ems="9"
+                android:hint="@string/mobile_number"
                 android:textAlignment="center"
                 android:imeOptions="actionDone"
-                android:importantForAutofill="no"
                 android:textSize="20sp"
                 android:inputType="phone"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                android:focusedByDefault="true"
+                android:textColor="@color/black"
+                android:fontFamily="@font/exo2"
+                android:textColorHint="@color/black_a"
                 tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40sp">
 
             <Button
                 android:id="@+id/getotp_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/white_rectangle"
-                android:textColor="@color/white"
+                android:background="@drawable/blackround_rectangle"
+                android:textColor="@color/black"
                 android:text="@string/get_otp"
+                android:fontFamily="@font/exo2"
                 android:layout_margin="60dp"
                 android:textStyle="bold"
-                android:paddingHorizontal="20sp"
+                android:paddingHorizontal="40sp"
                 android:textSize="20sp" />
             
             <ProgressBar
@@ -121,9 +136,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/admin_login"
-            android:layout_marginTop="80sp"
+            android:layout_marginTop="60sp"
             android:textStyle="bold"
             android:alpha="0.9"
+            android:fontFamily="@font/ptserifbold"
             android:background="@drawable/rectangle"
             android:padding="10sp"
             android:textSize="20sp" />

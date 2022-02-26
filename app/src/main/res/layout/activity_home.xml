@@ -26,7 +26,9 @@
                 android:layout_height="wrap_content"
                 android:padding="10dp"
                 android:text="@string/your_crops"
-                android:textSize="30sp"
+                android:fontFamily="@font/exo2"
+                android:textSize="35sp"
+                android:textStyle="bold"
                 android:layout_gravity="center"/>
 
 <!--            HERE CARD WILL BE ADDED-->

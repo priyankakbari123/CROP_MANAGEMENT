@@ -8,7 +8,8 @@
     tools:context=".schedule">
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/bg3">
 
         <LinearLayout
             android:id="@+id/schedule_ll"
@@ -23,8 +24,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
-                android:textSize="30sp"
+                android:textSize="40sp"
                 android:layout_gravity="center"
+                android:fontFamily="@font/exo2"
                 android:text="@string/crop_schedule"/>
 
             <TextView
@@ -34,6 +36,7 @@
                 android:padding="10dp"
                 android:textSize="22sp"
                 android:layout_gravity="center"
+                android:fontFamily="@font/ptserifregular"
                 android:text=""/>
 
 <!--            CROP SCHEDULE is PLACED HERE-->

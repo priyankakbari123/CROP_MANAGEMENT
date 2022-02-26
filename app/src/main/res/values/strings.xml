@@ -37,7 +37,6 @@
     <string name="your_crops">YOUR CROPS</string>
     <string name="in_which_farm_crop_is_sown">In Which Farm Crop is Sown?</string>
     <string name="logout">Logout</string>
-    <string name="admin_login">Admin Login</string>
     <string name="add_subsidy">ADD SUBSIDY</string>
     <string name="subsidy_title">Subsidy Title</string>
     <string name="details_about_subsidy">Details About Subsidy</string>
@@ -47,5 +46,19 @@
     <string name="add_event">ADD EVENT</string>
     <string name="enter_farm_name">Enter Farm Name</string>
     <string name="enter_farm_area">Enter Farm Area</string>
+    <string name="subsidies">SUBSIDIES</string>
+    <string name="didn_t_receive_otp">Didn\'t Receive OTP ?</string>
+    <string name="resend_otp_again">RESEND OTP AGAIN</string>
+    <string name="submit">Submit</string>
+    <string name="otp_is_sent_to">Otp is sent to</string>
+    <string name="welcome_to_farmer_friend">Welcome to Farmer Friend</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="_91">+91</string>
+    <string name="add_crop_event">Add Crop Event</string>
+    <string name="admin_login">Admin Login</string>
+    <string name="userid">UserId</string>
+    <string name="enter_procedure">Enter Procedure</string>
+    <string name="enter_details">Enter Details</string>
+    <string name="enter_title">Enter Title</string>
 
 </resources>

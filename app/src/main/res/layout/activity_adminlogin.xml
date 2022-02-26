@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="30sp"
+    android:background="@drawable/adminbg"
     tools:context=".adminlogin">
 
 
@@ -14,9 +14,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:textColor="@color/black"
-        android:text="Admin Login" />
+        android:layout_margin="30sp"
+        android:fontFamily="@font/exo2"
+        android:textStyle="bold"
+        android:text="@string/admin_login" />
 
     <EditText
         android:id="@+id/admin_id"
@@ -26,9 +29,9 @@
         android:layout_marginLeft="30sp"
         android:layout_marginRight="30sp"
         android:inputType="text"
-        android:textSize="30sp"
-        android:background="@drawable/rectanglebox"
-        android:hint="UserId"
+        android:textSize="25sp"
+        android:background="@drawable/rectangle"
+        android:hint="@string/userid"
         android:paddingVertical="12sp"
         android:paddingHorizontal="20sp"
         />
@@ -43,8 +46,8 @@
         android:hint="Password"
         android:paddingVertical="12sp"
         android:paddingHorizontal="20sp"
-        android:background="@drawable/rectanglebox"
-        android:textSize="30sp"
+        android:background="@drawable/rectangle"
+        android:textSize="25sp"
         />
 
     <Button
@@ -53,6 +56,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80sp"
         android:layout_gravity="center"
+        android:fontFamily="@font/exo2"
+        android:paddingHorizontal="40sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:background="@drawable/rectangle"
         android:text="Login"/>
 
 

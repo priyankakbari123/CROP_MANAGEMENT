@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AdminHome"
+    android:background="@drawable/adminbg"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -16,6 +17,7 @@
         android:layout_height="wrap_content"
         android:textSize="40sp"
         android:textAlignment="center"
+        android:fontFamily="@font/exo2"
         android:text="@string/home"/>
 
     </RelativeLayout>
@@ -33,7 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="25dp"
-            android:text="Add Crop Event"
+            android:text="@string/add_crop_event"
+            android:fontFamily="@font/changa"
             android:textSize="40sp" />
 
         <Button
@@ -59,6 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="25dp"
+            android:fontFamily="@font/changa"
             android:text="@string/add_subsidy_"
 
             android:textSize="40sp" />

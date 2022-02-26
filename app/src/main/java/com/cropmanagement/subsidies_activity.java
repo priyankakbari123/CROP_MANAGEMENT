@@ -3,11 +3,14 @@ package com.cropmanagement;
 import static android.content.Intent.FLAG_ACTIVITY_NO_ANIMATION;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -71,6 +74,7 @@ public class subsidies_activity extends AppCompatActivity {
 
         ref=FirebaseDatabase.getInstance().getReference();
         ref.addValueEventListener(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 DataSnapshot ds=snapshot.child("subsidy");
@@ -112,6 +116,7 @@ public class subsidies_activity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     //METHOD FOR CREATING CARD FOR SUBSIDY
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("ResourceAsColor")
     void create_card(subsidy s){
         int subsidy_id=s.getId();
@@ -125,7 +130,9 @@ public class subsidies_activity extends AppCompatActivity {
         TextView text1 = new TextView(this);
         text1.setText(title); //set Crop Name
         text1.setTextColor(Color.BLACK);
-        text1.setShadowLayer(2,2,2,Color.BLACK);
+//        text1.setShadowLayer(2,2,2,Color.BLACK);
+        Typeface typeface = getResources().getFont(R.font.ptserifbold);
+        text1.setTypeface(typeface);
         text1.setId(subsidy_id);
 
         Button view_schedule_btn=new Button(this);

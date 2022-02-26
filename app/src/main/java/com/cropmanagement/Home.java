@@ -6,6 +6,8 @@ import static com.cropmanagement.R.id.nav_home;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,7 +21,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -138,6 +142,7 @@ public class Home extends AppCompatActivity {
 
     //METHOD FOR CREATING CARD for CROPS----------------------------------------------------------------------
     //showing_id_c for button id
+    @RequiresApi(api = Build.VERSION_CODES.O)
     void create_card(sowing_details sd){
         int sowing_id_c=sd.sowing_id,RID_bg;
         String crop_name_c=getCropName(sd.crop_id),cropID=sd.crop_id;
@@ -155,13 +160,17 @@ public class Home extends AppCompatActivity {
         text1.setTextColor(Color.WHITE);
         text1.setShadowLayer(2,2,2,Color.BLACK);
         text1.setId(sowing_id_c);
+        Typeface typeface = getResources().getFont(R.font.redressedregular);
+        text1.setTypeface(typeface);
 
         TextView text2 = new TextView(this);
         text2.setText(crop_name_farmName); //set Farm Name
         text2.setTextColor(Color.WHITE);
         text2.setTextSize(12);
-        text2.setShadowLayer(2,2,2,Color.BLACK);
+//        text2.setShadowLayer(2,2,2,Color.BLACK);
         text2.setId(sowing_id_c+100);
+        typeface = getResources().getFont(R.font.ptserifregular);
+        text2.setTypeface(typeface);
 
         Button view_schedule_btn=new Button(this);
         view_schedule_btn.setText("VIEW SCHEDULE");

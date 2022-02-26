@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:layout_margin="30sp"
+    android:background="@drawable/bg3"
     tools:context=".add_crop_event_admin">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="30sp"
         android:orientation="horizontal">
         <ImageView
             android:layout_width="wrap_content"
@@ -28,6 +29,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textSize="30sp"
+        android:fontFamily="@font/exo2"
         android:textColor="@color/black"/>
     </LinearLayout>
 
@@ -36,6 +38,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50sp"
+        android:layout_marginHorizontal="30sp"
+        android:background="@drawable/rectangle"
         android:gravity="left">
 
         <TextView
@@ -44,6 +48,7 @@
             android:layout_gravity="center"
             android:padding="20sp"
             android:textSize="20sp"
+            android:fontFamily="@font/ptserifregular"
             android:text="@string/crop_name" />
         <Spinner
             android:id="@+id/crop_spinner_admin"
@@ -60,6 +65,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50sp"
+        android:layout_marginHorizontal="30sp"
+        android:background="@drawable/rectangle"
         android:gravity="left">
 
         <TextView
@@ -68,6 +75,7 @@
             android:layout_gravity="center"
             android:padding="20sp"
             android:textSize="20sp"
+            android:fontFamily="@font/ptserifregular"
             android:text="@string/day" />
         <EditText
             android:id="@+id/s_day"
@@ -83,7 +91,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@drawable/rectangle"
         android:layout_marginTop="50sp"
+        android:layout_marginHorizontal="30sp"
         android:gravity="left">
 
         <TextView
@@ -92,6 +102,7 @@
             android:layout_gravity="center"
             android:padding="20sp"
             android:textSize="20sp"
+            android:fontFamily="@font/ptserifregular"
             android:text="@string/title" />
         <EditText
             android:id="@+id/s_title"
@@ -108,6 +119,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="50sp"
+        android:layout_marginHorizontal="30sp"
+        android:background="@drawable/rectangle"
         android:gravity="left">
 
         <TextView
@@ -116,6 +129,7 @@
             android:layout_gravity="center"
             android:padding="20sp"
             android:textSize="20sp"
+            android:fontFamily="@font/ptserifregular"
             android:text="@string/details" />
 
         <EditText
@@ -132,9 +146,12 @@
         android:id="@+id/addDetailsBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="40sp"
+        android:layout_marginHorizontal="60sp"
         android:layout_marginTop="50sp"
         android:textSize="20sp"
+        android:fontFamily="@font/exo2"
+        android:textStyle="bold"
+        android:background="@drawable/blackround_rectangle"
         android:text="@string/add_details"/>
 
 </LinearLayout>

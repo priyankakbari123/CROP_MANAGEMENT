@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -120,7 +121,8 @@ public class schedule extends AppCompatActivity {
 
     //METHOD FOR CREATING CARD for CROPS----------------------------------------------------------------------
 
-    void create_card(Date scheduleDate,crop_schedule cs){
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    void create_card(Date scheduleDate, crop_schedule cs){
         //Format Date
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -140,20 +142,24 @@ public class schedule extends AppCompatActivity {
         text1.setTextColor(Color.BLACK);
         text1.setTextSize(22);
 //        text1.setShadowLayer(2,2,2,Color.BLACK);
+        Typeface typeface = getResources().getFont(R.font.ptserifbold);
+        text1.setTypeface(typeface);
         text1.setId(text_id);
 
         TextView text2 = new TextView(this);
         text2.setText(title_c); //set Title(Event Title)
         text2.setTextColor(Color.BLACK);
         text2.setTextSize(23);
-//        text2.setShadowLayer(2,2,2,Color.BLACK);
+        typeface = getResources().getFont(R.font.ptserifregular);
+        text2.setTypeface(typeface);
         text2.setId(text_id+1000);
 
         TextView text3 = new TextView(this);
         text3.setText(details_c); //set Detail(Event Details)
         text3.setTextColor(Color.BLACK);
         text3.setTextSize(14);
-//        text3.setShadowLayer(2,2,2,Color.BLACK);
+        typeface = getResources().getFont(R.font.changa);
+        text3.setTypeface(typeface);
         text3.setId(text_id+2000);
 
         RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

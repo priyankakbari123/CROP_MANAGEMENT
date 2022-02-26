@@ -1,10 +1,13 @@
 package com.cropmanagement;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +75,11 @@ public class subsidy_details_activity extends AppCompatActivity {
         TextView text1 = new TextView(this);
         text1.setText(title); //set Crop Name
         text1.setTextColor(Color.BLACK);
-        text1.setShadowLayer(2,2,2,Color.BLACK);
+        Typeface typeface = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            typeface = getResources().getFont(R.font.ptserifbold);
+        }
+        text1.setTypeface(typeface);
         text1.setId(subsidy_id);
 
         RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -106,13 +113,21 @@ public class subsidy_details_activity extends AppCompatActivity {
 
         TextView text1 = new TextView(this);
         text1.setText("Details About Subsidy");
-        text1.setShadowLayer(2,2,2,Color.BLACK);
         text1.setTextColor(Color.BLACK);
+        Typeface typeface = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            typeface = getResources().getFont(R.font.apalu);
+        }
+        text1.setTypeface(typeface);
         text1.setId(subsidy_id);
 
         TextView text2 = new TextView(this);
         text2.setText(details); //set Crop Name
         text2.setTextColor(Color.BLACK);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            typeface = getResources().getFont(R.font.ptserifregular);
+        }
+        text2.setTypeface(typeface);
         text2.setId(subsidy_id+1000);
 
         RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -130,7 +145,7 @@ public class subsidy_details_activity extends AppCompatActivity {
         details_t_dimension.addRule(RelativeLayout.BELOW, layout.getId());
         text1.setLayoutParams(details_t_dimension);
         text1.setPadding(25,25,25,25);
-        text1.setTextSize(25);
+        text1.setTextSize(45);
         layout.addView(text1);
 
         details_dimension.addRule(RelativeLayout.BELOW, subsidy_id);
@@ -152,13 +167,22 @@ public class subsidy_details_activity extends AppCompatActivity {
 
         TextView text1 = new TextView(this);
         text1.setText("Procedure to Apply");
-        text1.setShadowLayer(2,2,2,Color.BLACK);
+//        text1.setShadowLayer(2,2,2,Color.BLACK);
         text1.setTextColor(Color.BLACK);
+        Typeface typeface = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            typeface = getResources().getFont(R.font.apalu);
+        }
+        text1.setTypeface(typeface);
         text1.setId(subsidy_id);
 
         TextView text2 = new TextView(this);
         text2.setText(procedure); //set Crop Name
         text2.setTextColor(Color.BLACK);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            typeface = getResources().getFont(R.font.ptserifregular);
+        }
+        text2.setTypeface(typeface);
         text2.setId(subsidy_id+1000);
 
         RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
@@ -176,7 +200,7 @@ public class subsidy_details_activity extends AppCompatActivity {
         procedure_t_dimension.addRule(RelativeLayout.BELOW, layout.getId());
         text1.setLayoutParams(procedure_t_dimension);
         text1.setPadding(25,25,25,25);
-        text1.setTextSize(25);
+        text1.setTextSize(50);
         layout.addView(text1);
 
         procedure_dimension.addRule(RelativeLayout.BELOW, subsidy_id);
