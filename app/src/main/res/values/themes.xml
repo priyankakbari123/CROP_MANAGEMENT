@@ -1,13 +1,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.CropManagement" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="Theme.CropManagement" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
 
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/black_a</item>
 <!--        <item name="colorPrimary">#0000ffff</item>-->
         <item name="colorPrimaryDark">@color/purple_700</item>
 <!--        <item name="colorPrimaryDark">#0000ffff</item>-->
-        <item name="colorAccent">@color/teal_200</item>
+<!--        <item name="colorAccent">@color/teal_200</item>-->
+        <item name="colorAccent">@color/black_a</item>
         <!-- Customize your theme here. -->
         <item name="windowNoTitle">true</item>
     </style>

@@ -29,9 +29,9 @@
     <string name="get_otp">GET OTP</string>
     <string name="add_event_for_crop">Add Event for Crop</string>
     <string name="crop_name">Crop Name:</string>
-    <string name="day">Day :</string>
-    <string name="title">Title :</string>
-    <string name="details">Details :</string>
+    <string name="day">Day </string>
+    <string name="title">Title </string>
+    <string name="details">Details</string>
     <string name="add_details">Add Details</string>
     <string name="crop_schedule">CROP SCHEDULE</string>
     <string name="your_crops">YOUR CROPS</string>
@@ -44,8 +44,7 @@
     <string name="home">HOME</string>
     <string name="add_subsidy_">Add Subsidy</string>
     <string name="add_event">ADD EVENT</string>
-    <string name="enter_farm_name">Enter Farm Name</string>
-    <string name="enter_farm_area">Enter Farm Area</string>
+    <string name="enter_farm_area">Enter Farm Area(in Acres)</string>
     <string name="subsidies">SUBSIDIES</string>
     <string name="didn_t_receive_otp">Didn\'t Receive OTP ?</string>
     <string name="resend_otp_again">RESEND OTP AGAIN</string>
@@ -60,5 +59,9 @@
     <string name="enter_procedure">Enter Procedure</string>
     <string name="enter_details">Enter Details</string>
     <string name="enter_title">Enter Title</string>
+    <string name="details_">Details About Subsidy</string>
+    <string name="enter_farm_name">Enter Farm Name</string>
+    <string name="link_for_subsidy">Link for Subsidy</string>
+
 
 </resources>

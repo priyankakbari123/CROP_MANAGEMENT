@@ -17,7 +17,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class add_subsidy_admin extends AppCompatActivity {
-    EditText title,detail,procedure;
+    EditText title,detail,procedure,link;
     Button addSubsidy;
     DatabaseReference reference;
     int subsidyId;
@@ -30,6 +30,7 @@ public class add_subsidy_admin extends AppCompatActivity {
         detail=findViewById(R.id.subsidy_details);
         procedure=findViewById(R.id.subsidy_procedure);
         addSubsidy=findViewById(R.id.addSubsidy);
+        link=findViewById(R.id.subsidy_link);
 
         //GETTING MAX SOWING_ID ----------------------------------------------------------------------------
         reference= FirebaseDatabase.getInstance().getReference().child("subsidy_id");
@@ -48,7 +49,7 @@ public class add_subsidy_admin extends AppCompatActivity {
         addSubsidy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!title.getText().toString().isEmpty() && !detail.getText().toString().isEmpty() && !procedure.getText().toString().isEmpty()){
+                if(!title.getText().toString().isEmpty() && !detail.getText().toString().isEmpty() && !procedure.getText().toString().isEmpty() && !link.getText().toString().isEmpty() ){
 
                     //GETTING INPUT FROM EDITTEXT AND STORED INTO OBJECTS
                     subsidy s=new subsidy();
@@ -56,6 +57,7 @@ public class add_subsidy_admin extends AppCompatActivity {
                     s.setTitle(title.getText().toString());
                     s.setDetails(detail.getText().toString());
                     s.setProcedure(procedure.getText().toString());
+                    s.setLink(link.getText().toString());
 
                     //ADD SUBSIDY DETAILS INTO DATABASE
                     reference= FirebaseDatabase.getInstance().getReference("subsidy").child(Integer.toString(subsidyId));

@@ -12,9 +12,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10sp"
-        android:gravity="center">
+        android:layout_marginStart="10sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="10sp"
+        android:layout_marginBottom="10sp"
+        android:gravity="center"
+        android:orientation="vertical">
 
 
         <TextView
@@ -23,152 +26,195 @@
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
             android:layout_marginBottom="10sp"
-            android:text="@string/add_crop"
             android:fontFamily="@font/exo2"
+            android:text="@string/add_crop"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:textSize="35sp" />
+            android:textSize="35sp"
+            android:textStyle="bold" />
 
 
-    <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/which_crop_you_are_growing"
-            android:textSize="22sp"
             android:layout_marginTop="20sp"
-            android:fontFamily="@font/ptserifregular"/>
+            android:fontFamily="@font/ptserifregular"
+            android:text="@string/which_crop_you_are_growing"
+            android:textSize="22sp" />
 
         <!--    dropdown for selecting crop    -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40sp"
             android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
             android:layout_marginTop="20sp"
-            android:paddingStart="5sp"
+            android:layout_marginRight="60sp"
             android:background="@drawable/spinner_bg"
-            android:orientation="horizontal">
-        <Spinner
-            android:id="@+id/crop_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:background="@android:color/transparent"
-            android:spinnerMode="dropdown"
-            tools:ignore="Suspicious0dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.1"
-            android:onClick="showDropDown"
-            android:src="@drawable/ic_drop_down_24" />
+            android:orientation="horizontal"
+            android:paddingStart="5sp">
+
+            <Spinner
+                android:id="@+id/crop_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="5"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:spinnerMode="dropdown"
+                tools:ignore="Suspicious0dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.1"
+                android:onClick="showDropDown"
+                android:src="@drawable/ic_drop_down_24" />
 
         </LinearLayout>
 
 
+        <!--    Input box for adding Area-->
+        <!--    <TextView-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:text="@string/enter_farm_area_in_acres"-->
+        <!--        android:textSize="18sp"-->
+        <!--        android:layout_marginTop="40sp"-->
+        <!--        android:fontFamily="@font/ptserifregular"-->
+        <!--        />-->
 
-<!--    Input box for adding Area-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_farm_area_in_acres"
-        android:textSize="18sp"
-        android:layout_marginTop="40sp"
-        android:fontFamily="@font/ptserifregular"
-        />
+        <!--    <EditText-->
+        <!--        android:id="@+id/crop_area"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="40sp"-->
+        <!--        android:layout_marginLeft="60sp"-->
+        <!--        android:layout_marginRight="60sp"-->
+        <!--        android:layout_marginTop="20sp"-->
+        <!--        android:paddingHorizontal="10sp"-->
+        <!--        android:fontFamily="@font/ptserifregular"-->
+        <!--        android:hint="@string/enter_farm_area"-->
+        <!--        android:textStyle="bold"-->
+        <!--        android:background="@drawable/rectangle"-->
+        <!--        android:inputType="number"/>-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60sp"
+            android:layout_marginTop="25sp">
 
-    <EditText
-        android:id="@+id/crop_area"
-        android:layout_width="match_parent"
-        android:layout_height="40sp"
-        android:layout_marginLeft="60sp"
-        android:layout_marginRight="60sp"
-        android:layout_marginTop="20sp"
-        android:paddingHorizontal="10sp"
-        android:fontFamily="@font/ptserifregular"
-        android:hint="@string/enter_farm_area"
-        android:textStyle="bold"
-        android:background="@drawable/rectangle"
-        android:inputType="number"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/crop_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptserifregular"
+                android:gravity="top"
+                android:hint="@string/enter_farm_area"
+                android:inputType="number"
+                android:paddingLeft="5sp"
+                android:paddingTop="10sp"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
         <!--    Input box for adding Area-->
 
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="@string/in_which_farm_crop_is_sown"-->
+        <!--            android:textSize="18sp"-->
+        <!--            android:layout_marginTop="40sp"-->
+        <!--            android:fontFamily="@font/ptserifregular"/>-->
+
+        <!--        <EditText-->
+        <!--            android:id="@+id/farm_name"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="40sp"-->
+        <!--            android:layout_marginLeft="60sp"-->
+        <!--            android:layout_marginRight="60sp"-->
+        <!--            android:layout_marginTop="20sp"-->
+        <!--            android:paddingHorizontal="10sp"-->
+        <!--            android:textStyle="bold"-->
+        <!--            android:background="@drawable/rectangle"-->
+        <!--            android:hint="@string/enter_farm_name"-->
+        <!--            android:fontFamily="@font/ptserifregular"-->
+        <!--            android:inputType="text"/>-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60sp"
+            android:layout_marginTop="25sp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/farm_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptserifregular"
+                android:gravity="top"
+                android:hint="@string/enter_farm_name"
+                android:inputType="text"
+                android:overScrollMode="always"
+                android:paddingLeft="5sp"
+                android:paddingTop="10sp"
+                android:scrollbarStyle="insideInset"
+                android:scrollbars="vertical"
+                android:scrollHorizontally="false"
+                android:textSize="20sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!--    ENTERING SHOWING DATE-->
         <TextView
+            android:id="@+id/showingDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/in_which_farm_crop_is_sown"
-            android:textSize="18sp"
             android:layout_marginTop="40sp"
-            android:fontFamily="@font/ptserifregular"/>
-
-        <EditText
-            android:id="@+id/farm_name"
-            android:layout_width="match_parent"
-            android:layout_height="40sp"
-            android:layout_marginLeft="60sp"
-            android:layout_marginRight="60sp"
-            android:layout_marginTop="20sp"
-            android:paddingHorizontal="10sp"
-            android:textStyle="bold"
-            android:background="@drawable/rectangle"
-            android:hint="@string/enter_farm_name"
             android:fontFamily="@font/ptserifregular"
-            android:inputType="text"/>
+            android:text="@string/when_has_the_crop_been_sown"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/showing_datePickerBtn"
+            style="?android:spinnerStyle"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:fontFamily="@font/ptserifregular"
+            android:onClick="openDatePicker"
+            android:text="@string/select_date"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/showingDateText" />
 
-<!--    ENTERING SHOWING DATE-->
-    <TextView
-        android:id="@+id/showingDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/when_has_the_crop_been_sown"
-        android:textSize="18sp"
-        android:fontFamily="@font/ptserifregular"
-        android:layout_marginTop="40sp"/>
-    <Button
-        android:id="@+id/showing_datePickerBtn"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:text="@string/select_date"
-        android:fontFamily="@font/ptserifregular"
-        android:textSize="18sp"
-        style="?android:spinnerStyle"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@+id/showingDateText"
-        android:onClick="openDatePicker"
-        android:textStyle="bold"
-        />
+        <!--    ADD CROP BUTTON-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addcropbtn"
+            android:layout_width="130sp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90sp"
+            android:layout_marginBottom="20sp"
+            android:background="@drawable/btn"
+            android:fontFamily="@font/exo2"
+            android:paddingHorizontal="10sp"
+            android:shadowRadius="2"
+            android:text="@string/add_crop"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-<!--    ADD CROP BUTTON-->
-    <Button
-        android:id="@+id/addcropbtn"
-        android:layout_width="130sp"
-        android:layout_height="wrap_content"
-        android:text="@string/add_crop"
-        android:layout_marginBottom="20sp"
-        android:layout_marginTop="40sp"
-        android:paddingHorizontal="10sp"
-        android:fontFamily="@font/exo2"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:shadowRadius="2"
-        android:background="@drawable/btn"
-        />
-
-<!--    LOGOUT-->
-<!--    <Button-->
-<!--        android:id="@+id/logout"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginBottom="30sp"-->
-<!--        android:text="@string/logout"-->
+        <!--    LOGOUT-->
+        <!--    <Button-->
+        <!--        android:id="@+id/logout"-->
+        <!--        android:layout_width="wrap_content"-->
+        <!--        android:layout_height="wrap_content"-->
+        <!--        android:layout_marginBottom="30sp"-->
+        <!--        android:text="@string/logout"-->
 
 
     </LinearLayout>

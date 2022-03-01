@@ -34,6 +34,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class Home extends AppCompatActivity {
@@ -107,7 +108,9 @@ public class Home extends AppCompatActivity {
                     //CREATE CARD FOR EVERY CROP
 //                     sowing_details sd:sd_list
                     for(int i=sd_list.size()-1;i>=0;i--){
-                        create_card(sd_list.get(i));
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            create_card(sd_list.get(i));
+                        }
                     }
                 }
 
@@ -147,6 +150,8 @@ public class Home extends AppCompatActivity {
         int sowing_id_c=sd.sowing_id,RID_bg;
         String crop_name_c=getCropName(sd.crop_id),cropID=sd.crop_id;
         String crop_name_farmName="( "+sd.getFarm_name()+" )";
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String sowing_date=sdf.format(sd.getSowing_date());
         //CREATE DYNAMIC CARD
         RID_bg=getCardBackground(cropID);
 
@@ -164,22 +169,30 @@ public class Home extends AppCompatActivity {
         text1.setTypeface(typeface);
 
         TextView text2 = new TextView(this);
-        text2.setText(crop_name_farmName); //set Farm Name
+        text2.setText(crop_name_farmName+"("+sowing_date+")"); //set Farm Name
         text2.setTextColor(Color.WHITE);
         text2.setTextSize(12);
-//        text2.setShadowLayer(2,2,2,Color.BLACK);
         text2.setId(sowing_id_c+100);
         typeface = getResources().getFont(R.font.ptserifregular);
         text2.setTypeface(typeface);
+
+//        TextView text3 = new TextView(this);
+//        text3.setText("("+sowing_date+")"); //set sowing date
+//        text3.setTextColor(Color.WHITE);
+//        text3.setTextSize(12);
+//        text3.setId(sowing_id_c+200);
+//        typeface = getResources().getFont(R.font.ptserifregular);
+//        text3.setTypeface(typeface);
 
         Button view_schedule_btn=new Button(this);
         view_schedule_btn.setText("VIEW SCHEDULE");
         view_schedule_btn.setTextColor(Color.WHITE);
         view_schedule_btn.setId(sowing_id_c);
 
-        RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,370);
+        RelativeLayout.LayoutParams layout_dimension=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,380);
         RelativeLayout.LayoutParams cropname_dimension = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams farmname_dimension = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        RelativeLayout.LayoutParams sowing_date_dimension = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams btn_dim=new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
         layout_dimension.addRule(RelativeLayout.BELOW);
@@ -192,14 +205,20 @@ public class Home extends AppCompatActivity {
 
         cropname_dimension.addRule(RelativeLayout.BELOW, layout.getId());
         text1.setLayoutParams(cropname_dimension);
-        text1.setPadding(25,45,25,25);
+        text1.setPadding(25,75,25,0);
         text1.setTextSize(40);
         layout.addView(text1);
 
-        farmname_dimension.addRule(RelativeLayout.RIGHT_OF, sowing_id_c);
+        farmname_dimension.addRule(RelativeLayout.BELOW, layout.getId());
         text2.setLayoutParams(cropname_dimension);
         text2.setPadding(30,20,25,25);
         layout.addView(text2);
+
+//        sowing_date_dimension.addRule(RelativeLayout.BELOW, layout.getId());
+//        sowing_date_dimension.setMargins(50,10,10,10);
+//        text3.setLayoutParams(cropname_dimension);
+//        text3.setPadding(190,20,25,25);
+//        layout.addView(text3);
 
         btn_dim.addRule(RelativeLayout.BELOW,text1.getId());
         view_schedule_btn.setLayoutParams(btn_dim);

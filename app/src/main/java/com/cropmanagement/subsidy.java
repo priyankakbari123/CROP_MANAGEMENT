@@ -33,7 +33,15 @@ public class subsidy {
         this.id = id;
     }
 
-    String title,details,procedure;
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    String title,details,procedure,link;
     int id;
 
     subsidy(){}

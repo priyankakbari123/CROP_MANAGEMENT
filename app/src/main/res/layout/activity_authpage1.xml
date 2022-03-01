@@ -105,7 +105,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/getotp_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -131,7 +131,7 @@
 
         </FrameLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/adminlogin_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
